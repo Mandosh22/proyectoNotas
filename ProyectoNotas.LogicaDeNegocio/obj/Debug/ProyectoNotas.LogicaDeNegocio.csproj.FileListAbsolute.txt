@@ -1,0 +1,11 @@
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.csprojAssemblyReference.cache
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.LogicaDeNegocio\bin\Debug\ProyectoNotas.LogicaDeNegocio.dll
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.LogicaDeNegocio\bin\Debug\ProyectoNotas.LogicaDeNegocio.pdb
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.LogicaDeNegocio\bin\Debug\ProyectoNotas.AccesoADatos.dll
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.LogicaDeNegocio\bin\Debug\ProyectoNotasEntidadesDeNegocios.dll
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.LogicaDeNegocio\bin\Debug\ProyectoNotas.AccesoADatos.pdb
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.LogicaDeNegocio\bin\Debug\ProyectoNotasEntidadesDeNegocios.pdb
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.csproj.CopyComplete
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.dll
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.pdb

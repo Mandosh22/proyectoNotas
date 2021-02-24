@@ -1,0 +1,9 @@
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.csprojAssemblyReference.cache
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\bin\Debug\ProyectoNotas.AccesoADatos.dll
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\bin\Debug\ProyectoNotas.AccesoADatos.pdb
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\bin\Debug\ProyectoNotasEntidadesDeNegocios.dll
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\bin\Debug\ProyectoNotasEntidadesDeNegocios.pdb
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.csproj.CopyComplete
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.dll
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.pdb

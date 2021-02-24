@@ -1,0 +1,6 @@
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotasEntidadesDeNegocios\bin\Debug\ProyectoNotasEntidadesDeNegocios.dll
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotasEntidadesDeNegocios\bin\Debug\ProyectoNotasEntidadesDeNegocios.pdb
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotasEntidadesDeNegocios\obj\Debug\ProyectoNotas.EntidadesDeNegocios.csprojAssemblyReference.cache
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotasEntidadesDeNegocios\obj\Debug\ProyectoNotas.EntidadesDeNegocios.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotasEntidadesDeNegocios\obj\Debug\ProyectoNotasEntidadesDeNegocios.dll
+C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotasEntidadesDeNegocios\obj\Debug\ProyectoNotasEntidadesDeNegocios.pdb
