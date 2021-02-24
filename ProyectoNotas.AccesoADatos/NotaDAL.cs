@@ -4,47 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 using System.Data;
 using System.Data.SqlClient;
-using ProyectoNotasEntidadesDeNegocios; 
+using ProyectoNotasEntidadesDeNegocios;
 
 namespace ProyectoNotas.AccesoADatos
 {
-    public class MateriaDAL
+    class NotaDAL
     {
-        //metodo permite obtener los registros almacenados en la base de datos
-        public List<Materia> ObtenerMaterias() 
+        public List<Nota> ObtenerNotas()
         {
-            List<Materia> listaMaterias = new List<Materia>();
+            List<Nota> listaNota = new List<Nota>();
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string ssql = "SELECT * FROM Materias";
+                string ssql = "SELECT * FROM Notas";
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
                 IDataReader reader = comando.ExecuteReader();
 
-                while (reader.Read()) 
+                while (reader.Read())
                 {
-                    listaMaterias.Add(new Materia(reader.GetInt32(0), reader.GetString(1)));
+                    listaNota.Add(new Nota(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetInt32(3)));
                 }
 
                 con.Close();
             }
 
-            return listaMaterias;
+            return listaNota;
         }
 
-        //metodo que permite insertar un registro de materias
 
-        public int InsertarMateria(Materia pMateria) 
+        public int InsertarNotas(Nota pNota)
         {
             int resultado = 0;
-            using(SqlConnection con = Conexion.Conectar()) 
+            using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "INSERT INTO Materias(Nombre) VALUES('{0}')";
-                string ssql = string.Format(sentencia, pMateria.Nombre);
+                string sentencia = "INSERT INTO Notas (IdAlumno ,Nota,IdMateria) VALUES('{0}','{1}','{2}')";
+                string ssql = string.Format(sentencia, pNota.IdAlumno, pNota.Notas, pNota.IdMateria);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
                 resultado = comando.ExecuteNonQuery();
@@ -54,16 +53,17 @@ namespace ProyectoNotas.AccesoADatos
 
             return resultado;
         }
-        //metodo que permite modificar un registro de materias existentes
 
-        public int ModificarMateria(Materia pMateria)
+
+
+        public int ModificarNotas(Nota pNota)
         {
             int resultado = 0;
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "UPDATE Materias SET Nombre = '{0}' WHERE Id = {1}";
-                string ssql = string.Format(sentencia, pMateria.Nombre, pMateria.Id);
+                string sentencia = "UPDATE Notas SET IdAlumno = '{0}',Nota='{1}',IdMateria='{2}',' WHERE Id ='{3}'";
+                string ssql = string.Format(sentencia, pNota.IdAlumno, pNota.Notas, pNota.IdMateria, pNota.Id);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
                 resultado = comando.ExecuteNonQuery();
@@ -73,15 +73,17 @@ namespace ProyectoNotas.AccesoADatos
 
             return resultado;
         }
-        //metodo que permite elimiar un registro de materias existentes
 
-        public int EliminarMateria(int pId)
+
+        //metodo que permite elimiar un registro de Notaes existentes
+
+        public int EliminarNotas(int pId)
         {
             int resultado = 0;
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "DELETE FROM Materias WHERE Id = {0}";
+                string sentencia = "DELETE FROM Notas WHERE Id = {0}";
                 string ssql = string.Format(sentencia, pId);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
@@ -92,14 +94,15 @@ namespace ProyectoNotas.AccesoADatos
 
             return resultado;
         }
-        //metodo permite obtener un registros almacenado en la base de datos
-        public static Materia ObtenerMateriaPorId(int pId)
+
+
+        public static Nota ObtenerNotasPorId(int pId)
         {
-            Materia Materia = new Materia();
+            Nota Nota = new Nota();
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "SELECT * FROM Materias WHERE Id = {0}";
+                string sentencia = "SELECT * FROM Notas WHERE Id = {0}";
                 string ssql = string.Format(sentencia, pId);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
@@ -107,14 +110,21 @@ namespace ProyectoNotas.AccesoADatos
 
                 if (reader.Read())
                 {
-                    Materia.Id = reader.GetInt32(0);
-                    Materia.Nombre = reader.GetString(1);
+                    Nota.Id = reader.GetInt32(0);
+                    Nota.IdAlumno = reader.GetInt32(1);
+                    Nota.Notas = reader.GetInt32(2);
+                    Nota.IdMateria = reader.GetInt32(3);
+
                 }
 
                 con.Close();
             }
 
-            return Materia;
+            return Nota;
         }
+
+
+
+
     }
 }

@@ -15,11 +15,11 @@ namespace ProyectoNotasEntidadesDeNegocios
         public string Contraseña { get; set; }
         public string Direccion { get; set; }
         public string Correo { get; set; }
-        public Materia Materia { get; set; }
+        public int IdMateria { get; set; }
 
         public Profesor( ) { }
 
-        public Profesor(int pId, string pNombre, string pApellido, string pUserName, string pContraseña, string pDireccion, string pCorreo, Materia pMateria) 
+        public Profesor(int pId, string pNombre, string pApellido, string pUserName, string pContraseña, string pDireccion, string pCorreo, int pIdMateria) 
         {
             Id = pId;
             Nombre = pNombre;
@@ -28,7 +28,7 @@ namespace ProyectoNotasEntidadesDeNegocios
             Contraseña = pContraseña;
             Direccion = pDireccion;
             Correo = pCorreo;
-            Materia = pMateria;
+            IdMateria = pIdMateria;
         }
     }
 }

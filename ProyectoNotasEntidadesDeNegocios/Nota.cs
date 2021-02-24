@@ -10,17 +10,17 @@ namespace ProyectoNotasEntidadesDeNegocios
     {
         public int Id { get; set; }
         public decimal Notas { get; set; }
-        public Alumno Alumno { get; set; }
-        public Materia Materia { get; set; }
+        public int IdAlumno { get; set; }
+        public int IdMateria { get; set; }
 
 
         public Nota() { }
-        public Nota(int pId, decimal pNotas, Alumno pAlumno, Materia pMateria)
+        public Nota(int pId, decimal pNotas, int pIdAlumno, int pIdMateria)
         {
             Id = pId;
             Notas = pNotas;
-            Alumno = pAlumno;
-            Materia = pMateria;
+            IdAlumno = pIdAlumno;
+            IdMateria = pIdMateria;
         }
     }
 }

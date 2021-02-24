@@ -9,17 +9,17 @@ namespace ProyectoNotasEntidadesDeNegocios
     public class DetalleSeccion
     {
         public int Id { get; set; }
-        public Seccion Seccion { get; set; }
-        public Materia Materia { get; set; }
-        public Profesor Profesor { get; set; }
+        public int IdSeccion { get; set; }
+        public int IdMateria { get; set; }
+        public int IdProfesor { get; set; }
 
         public DetalleSeccion() { }
-        public DetalleSeccion(int pId, Seccion PSeccion, Materia PMateria, Profesor pProfesor) 
+        public DetalleSeccion(int pId, int PIdSeccion, int PIdMateria, int pIdProfesor) 
         {
             Id = pId;
-            Seccion = PSeccion;
-            Materia = PMateria;
-            Profesor = pProfesor;
+            IdSeccion = PIdSeccion;
+            IdMateria = PIdMateria;
+            IdProfesor = pIdProfesor;
         }
     }
 }

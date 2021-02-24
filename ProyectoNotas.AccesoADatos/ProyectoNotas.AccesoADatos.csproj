@@ -41,9 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministradorDAL.cs" />
+    <Compile Include="AlumnoDAL.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="DetalleSeccionDAL.cs" />
     <Compile Include="MateriaDAL.cs" />
+    <Compile Include="NotaDAL.cs" />
+    <Compile Include="ProfesorDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeccionDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProyectoNotasEntidadesDeNegocios\ProyectoNotas.EntidadesDeNegocios.csproj">

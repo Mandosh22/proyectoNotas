@@ -16,11 +16,11 @@ namespace ProyectoNotasEntidadesDeNegocios
         public string Direccion { get; set; }
         public string Correo { get; set; }
 
-        public Seccion Seccion { get; set; }
+        public int IdSeccion { get; set; }
 
 
         public Alumno() { }
-        public Alumno(int pId, string pNombre, string pApellido, string pUserName, string pContraseña, string pDireccion, string pCorreo, Seccion pSeccion) 
+        public Alumno(int pId, string pNombre, string pApellido, string pUserName, string pContraseña, string pDireccion, string pCorreo, int pIdSeccion) 
         {
             Id = pId;
             Nombre = pNombre;
@@ -29,7 +29,7 @@ namespace ProyectoNotasEntidadesDeNegocios
             Contraseña = pContraseña;
             Direccion = pDireccion;
             Correo = pCorreo;
-            Seccion = pSeccion;
+            IdSeccion = pIdSeccion;
 
         
         }

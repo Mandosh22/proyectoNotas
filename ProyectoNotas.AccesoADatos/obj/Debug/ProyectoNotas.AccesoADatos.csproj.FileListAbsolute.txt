@@ -7,3 +7,11 @@ C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\bin\Debug\Pr
 C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.csproj.CopyComplete
 C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.dll
 C:\Users\USER\source\repos\ProyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.pdb
+C:\Users\Guillermo Ayala\Desktop\aaa\proyectoNotas\ProyectoNotas.AccesoADatos\bin\Debug\ProyectoNotas.AccesoADatos.dll
+C:\Users\Guillermo Ayala\Desktop\aaa\proyectoNotas\ProyectoNotas.AccesoADatos\bin\Debug\ProyectoNotas.AccesoADatos.pdb
+C:\Users\Guillermo Ayala\Desktop\aaa\proyectoNotas\ProyectoNotas.AccesoADatos\bin\Debug\ProyectoNotasEntidadesDeNegocios.dll
+C:\Users\Guillermo Ayala\Desktop\aaa\proyectoNotas\ProyectoNotas.AccesoADatos\bin\Debug\ProyectoNotasEntidadesDeNegocios.pdb
+C:\Users\Guillermo Ayala\Desktop\aaa\proyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.csprojAssemblyReference.cache
+C:\Users\Guillermo Ayala\Desktop\aaa\proyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.csproj.CopyComplete
+C:\Users\Guillermo Ayala\Desktop\aaa\proyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.dll
+C:\Users\Guillermo Ayala\Desktop\aaa\proyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.pdb
