@@ -13,7 +13,6 @@ namespace ProyectoNotasEntidadesDeNegocios
         public int IdAlumno { get; set; }
         public int IdMateria { get; set; }
 
-
         public Nota() { }
         public Nota(int pId, decimal pNotas, int pIdAlumno, int pIdMateria)
         {

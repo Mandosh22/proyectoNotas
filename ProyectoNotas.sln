@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoNotas.EntidadesDeNegocios", "ProyectoNotasEntidadesDeNegocios\ProyectoNotas.EntidadesDeNegocios.csproj", "{F9FE2475-9CE3-408F-970B-5328EF4DF093}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoNotasEntidadesDeNegocios", "ProyectoNotasEntidadesDeNegocios\ProyectoNotasEntidadesDeNegocios.csproj", "{F9FE2475-9CE3-408F-970B-5328EF4DF093}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoNotas.AccesoADatos", "ProyectoNotas.AccesoADatos\ProyectoNotas.AccesoADatos.csproj", "{7019D9DF-261F-46EB-9251-C0EF7B3402FD}"
 EndProject

@@ -12,7 +12,7 @@ using ProyectoNotasEntidadesDeNegocios;
 
 namespace ProyectoNotas.AccesoADatos
 {
-    class ProfesorDAL
+    public class ProfesorDAL
     {
 
         public List<Profesor> ObtenerProfesor()

@@ -11,7 +11,7 @@ using ProyectoNotasEntidadesDeNegocios;
 
 namespace ProyectoNotas.AccesoADatos
 {
-    class AlumnoDAL
+    public class AlumnoDAL
     {
 
         public List<Alumno> ObtenerAlumnos()

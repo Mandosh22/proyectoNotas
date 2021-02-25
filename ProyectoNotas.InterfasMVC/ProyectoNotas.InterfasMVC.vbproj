@@ -178,9 +178,9 @@
       <Project>{e77c360d-36dd-4630-8585-8b606719e23e}</Project>
       <Name>ProyectoNotas.LogicaDeNegocio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProyectoNotasEntidadesDeNegocios\ProyectoNotas.EntidadesDeNegocios.csproj">
+    <ProjectReference Include="..\ProyectoNotasEntidadesDeNegocios\ProyectoNotasEntidadesDeNegocios.csproj">
       <Project>{f9fe2475-9ce3-408f-970b-5328ef4df093}</Project>
-      <Name>ProyectoNotas.EntidadesDeNegocios</Name>
+      <Name>ProyectoNotasEntidadesDeNegocios</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

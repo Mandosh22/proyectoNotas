@@ -11,11 +11,11 @@ using ProyectoNotasEntidadesDeNegocios;
 
 namespace ProyectoNotas.AccesoADatos
 {
-    class NotaDAL
+     public class NotaDAL
     {
         public List<Nota> ObtenerNotas()
         {
-            List<Nota> listaNota = new List<Nota>();
+            List<Nota> listaNotas = new List<Nota>();
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
@@ -26,17 +26,17 @@ namespace ProyectoNotas.AccesoADatos
 
                 while (reader.Read())
                 {
-                    listaNota.Add(new Nota(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetInt32(3)));
+                    listaNotas.Add(new Nota(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetInt32(3)));
                 }
 
                 con.Close();
             }
 
-            return listaNota;
+            return listaNotas;
         }
 
 
-        public int InsertarNotas(Nota pNota)
+        public int InsertarNota(Nota pNota)
         {
             int resultado = 0;
             using (SqlConnection con = Conexion.Conectar())
@@ -56,7 +56,7 @@ namespace ProyectoNotas.AccesoADatos
 
 
 
-        public int ModificarNotas(Nota pNota)
+        public int ModificarNota (Nota pNota)
         {
             int resultado = 0;
             using (SqlConnection con = Conexion.Conectar())
@@ -77,7 +77,7 @@ namespace ProyectoNotas.AccesoADatos
 
         //metodo que permite elimiar un registro de Notaes existentes
 
-        public int EliminarNotas(int pId)
+        public int EliminarNota(int pId)
         {
             int resultado = 0;
             using (SqlConnection con = Conexion.Conectar())
@@ -96,7 +96,7 @@ namespace ProyectoNotas.AccesoADatos
         }
 
 
-        public static Nota ObtenerNotasPorId(int pId)
+        public static Nota ObtenerNotaPorId(int pId)
         {
             Nota Nota = new Nota();
             using (SqlConnection con = Conexion.Conectar())

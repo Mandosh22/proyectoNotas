@@ -10,7 +10,7 @@ using ProyectoNotasEntidadesDeNegocios;
 
 namespace ProyectoNotas.AccesoADatos
 {
-    class AdministradorDAL
+    public class AdministradorDAL
     {
 
         public List<Administrador> ObtenerAdministradores()

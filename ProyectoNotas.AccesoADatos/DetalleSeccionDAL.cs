@@ -12,7 +12,7 @@ using ProyectoNotasEntidadesDeNegocios;
 
 namespace ProyectoNotas.AccesoADatos
 {
-    class DetalleSeccionDAL
+    public class DetalleSeccionDAL
     {
         public List<DetalleSeccion> ObtenerDetalleSecciones()
         {

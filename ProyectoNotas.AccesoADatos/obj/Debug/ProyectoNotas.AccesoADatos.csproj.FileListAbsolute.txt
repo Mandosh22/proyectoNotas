@@ -15,3 +15,7 @@ C:\Users\Guillermo Ayala\Desktop\aaa\proyectoNotas\ProyectoNotas.AccesoADatos\ob
 C:\Users\Guillermo Ayala\Desktop\aaa\proyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.csproj.CopyComplete
 C:\Users\Guillermo Ayala\Desktop\aaa\proyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.dll
 C:\Users\Guillermo Ayala\Desktop\aaa\proyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.pdb
+C:\Users\USER\Downloads\EEE\proyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.csprojAssemblyReference.cache
+C:\Users\USER\Downloads\EEE\proyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.csproj.CoreCompileInputs.cache
+C:\Users\USER\Downloads\EEE\proyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.dll
+C:\Users\USER\Downloads\EEE\proyectoNotas\ProyectoNotas.AccesoADatos\obj\Debug\ProyectoNotas.AccesoADatos.pdb
