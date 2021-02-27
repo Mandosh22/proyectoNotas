@@ -9,8 +9,8 @@ using System.Data.SqlClient;
 namespace ProyectoNotas.AccesoADatos
 {
     public class Conexion
-    {
-        private static string cadena = @"Data Source = MARTIR; Initial catalog = BDSistemaNotas; Integrated Security = True";
+    { // Data Source = MARTIR; Initial catalog = ProyectoNotas; Integrated Security = True
+        private static string cadena = @"Data Source=.;Initial Catalog=escuela;Integrated Security=True";
 
         public static SqlConnection Conectar() 
         {

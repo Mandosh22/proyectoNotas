@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.vb" Inherits="ProyectoNotas.InterfasMVC.MvcApplication" Language="VB" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="proyectoNotas.InterfasMVC.MvcApplication" Language="C#" %>

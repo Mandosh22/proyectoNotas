@@ -31,5 +31,10 @@ namespace ProyectoNotas.LogicaDeNegocio
         {
             return materiaDAL.ObtenerMaterias();
         }
+
+        public Materia ObtenerMateriaPorId(int pId)
+        {
+            return MateriaDAL.ObtenerMateriaPorId(pId);
+        }
     }
 }

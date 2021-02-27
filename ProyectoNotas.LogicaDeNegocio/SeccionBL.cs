@@ -16,7 +16,7 @@ namespace ProyectoNotas.LogicaDeNegocio
         {
             return seccionDAL.InsertarSeccion(pSeccion);
         }
-        public int ModificarSeccion(Seccion pSeccion)
+        public int ModificaSeccion(Seccion pSeccion)
         {
             return seccionDAL.ModificarSeccion(pSeccion);
         }
@@ -29,6 +29,11 @@ namespace ProyectoNotas.LogicaDeNegocio
         public List<Seccion> ObtenerSeccion()
         {
             return seccionDAL.ObtenerSeccion();
+        }
+
+        public object ObtenerPorId(int pId)
+        {
+            return SeccionDAL.ObtenerSeccionPorId(pId);
         }
     }
 }
