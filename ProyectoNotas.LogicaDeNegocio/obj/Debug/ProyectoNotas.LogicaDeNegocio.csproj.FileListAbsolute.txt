@@ -40,3 +40,14 @@ C:\Users\Guillermo Ayala\Desktop\Mando\proyectoNotas\ProyectoNotas.LogicaDeNegoc
 C:\Users\Guillermo Ayala\Desktop\Mando\proyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.csproj.CopyComplete
 C:\Users\Guillermo Ayala\Desktop\Mando\proyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.dll
 C:\Users\Guillermo Ayala\Desktop\Mando\proyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.pdb
+C:\Users\USER\Downloads\OOO\proyectoNotas\ProyectoNotas.LogicaDeNegocio\bin\Debug\ProyectoNotas.LogicaDeNegocio.dll
+C:\Users\USER\Downloads\OOO\proyectoNotas\ProyectoNotas.LogicaDeNegocio\bin\Debug\ProyectoNotas.LogicaDeNegocio.pdb
+C:\Users\USER\Downloads\OOO\proyectoNotas\ProyectoNotas.LogicaDeNegocio\bin\Debug\ProyectoNotas.AccesoADatos.dll
+C:\Users\USER\Downloads\OOO\proyectoNotas\ProyectoNotas.LogicaDeNegocio\bin\Debug\ProyectoNotasEntidadesDeNegocios.dll
+C:\Users\USER\Downloads\OOO\proyectoNotas\ProyectoNotas.LogicaDeNegocio\bin\Debug\ProyectoNotas.AccesoADatos.pdb
+C:\Users\USER\Downloads\OOO\proyectoNotas\ProyectoNotas.LogicaDeNegocio\bin\Debug\ProyectoNotasEntidadesDeNegocios.pdb
+C:\Users\USER\Downloads\OOO\proyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.csprojAssemblyReference.cache
+C:\Users\USER\Downloads\OOO\proyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.csproj.CoreCompileInputs.cache
+C:\Users\USER\Downloads\OOO\proyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.csproj.CopyComplete
+C:\Users\USER\Downloads\OOO\proyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.dll
+C:\Users\USER\Downloads\OOO\proyectoNotas\ProyectoNotas.LogicaDeNegocio\obj\Debug\ProyectoNotas.LogicaDeNegocio.pdb

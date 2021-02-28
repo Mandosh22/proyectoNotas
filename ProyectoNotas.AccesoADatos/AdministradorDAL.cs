@@ -43,10 +43,10 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "INSERT INTO Administradores (Nombre,Apellido,Username,Contraseña,Direccion,Correo) VALUES('{0}'," +
+                string sentencia = "INSERT INTO Administradores (Username,Contraseña,Nombre,ApellidO,Direccion,Correo) VALUES('{0}'," +
                     "'{1}','{2}','{3}','{4}','{5}')";
-                string ssql = string.Format(sentencia, pAdministrador.Nombre,pAdministrador.Apellido,pAdministrador.UserName,
-                    pAdministrador.Contraseña, pAdministrador.Direccion, pAdministrador.Correo);
+                string ssql = string.Format(sentencia, pAdministrador.Username, pAdministrador.Contraseña, pAdministrador.Nombre, pAdministrador.ApellidO,
+                    pAdministrador.Direccion, pAdministrador.Correo);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
                 resultado = comando.ExecuteNonQuery();
@@ -65,11 +65,11 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "UPDATE Administradores SET Nombre = '{0}',Apellido='{1}',Username='{2}'," +
-                    " Contraseña='{3}',Direccion='{4}',Correo='{5}' WHERE Id ='{6}'";
-                string ssql = string.Format(sentencia, pAdministrador.Nombre, pAdministrador.Apellido, 
-                    pAdministrador.UserName,pAdministrador.Contraseña, pAdministrador.Direccion, 
-                    pAdministrador.Correo,pAdministrador.Id);
+                string sentencia = "UPDATE Administradores SET Username = '{0}',Contraseña='{1}',Nombre='{2}'," +
+                    " ApellidO='{3}',Direccion='{4}',Correo='{5}' WHERE Id ='{6}'";
+                string ssql = string.Format(sentencia, pAdministrador.Username, pAdministrador.Contraseña,
+                    pAdministrador.Nombre, pAdministrador.ApellidO, pAdministrador.Direccion,
+                    pAdministrador.Correo, pAdministrador.Id);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
                 resultado = comando.ExecuteNonQuery();
@@ -117,10 +117,10 @@ namespace ProyectoNotas.AccesoADatos
                 if (reader.Read())
                 {
                     Administrador.Id = reader.GetInt32(0);
-                    Administrador.Nombre = reader.GetString(1);
-                    Administrador.Apellido = reader.GetString(2);
-                    Administrador.UserName = reader.GetString(3);
-                    Administrador.Contraseña = reader.GetString(4);
+                    Administrador.Username = reader.GetString(1);
+                    Administrador.Contraseña = reader.GetString(2);
+                    Administrador.Nombre = reader.GetString(3);
+                    Administrador.ApellidO = reader.GetString(4);
                     Administrador.Direccion = reader.GetString(5);
                     Administrador.Correo = reader.GetString(6);
                 }
@@ -130,6 +130,7 @@ namespace ProyectoNotas.AccesoADatos
 
             return Administrador;
         }
+
 
 
 

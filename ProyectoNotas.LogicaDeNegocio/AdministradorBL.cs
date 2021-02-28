@@ -28,9 +28,13 @@ namespace ProyectoNotas.LogicaDeNegocio
             return administradorDAL.EliminarAdministrador(pId);
         }
 
-        public List<Administrador> obtenerNotas()
+        public List<Administrador> obtenerAdminstrador()
         {
             return administradorDAL.ObtenerAdministradores();
+        }
+        public Administrador ObtenerAdministradorPorId(int pId)
+        {
+            return AdministradorDAL.ObtenerAdministradorPorId(pId);
         }
     }
 }
