@@ -21,7 +21,7 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string ssql = "SELECT * FROM Profesor";
+                string ssql = "SELECT * FROM Profesores";
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
                 IDataReader reader = comando.ExecuteReader();
@@ -45,7 +45,7 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "INSERT INTO Profesores (Nombre,Apellido,Username,Contraseña,Direccion,Correo,IdSeccion) VALUES('{0}'," +
+                string sentencia = "INSERT INTO Profesores (Nombre,Apellido,Username,Contraseña,Direccion,Correo,IdMateria) VALUES('{0}'," +
                     "'{1}','{2}','{3}','{4}','{5}','{6}')";
                 string ssql = string.Format(sentencia, pProfesor.Nombre, pProfesor.Apellido, pProfesor.UserName,
                     pProfesor.Contraseña, pProfesor.Direccion, pProfesor.Correo, pProfesor.IdMateria);
@@ -65,8 +65,7 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "UPDATE Profesores SET Nombre = '{0}',Apellido='{1}',Username='{2}'," +
-                    " Contraseña='{3}',Direccion='{4}',Correo='{5}',IdSeccion'{6}' WHERE Id ='{7}'";
+                string sentencia = "UPDATE Profesores SET Nombre = '{0}',Apellido='{1}',Username='{2}', Contraseña='{3}',Direccion='{4}',Correo='{5}',IdMateria='{6}' WHERE Id ='{7}'";
                 string ssql = string.Format(sentencia, pProfesor.Nombre, pProfesor.Apellido,
                     pProfesor.UserName, pProfesor.Contraseña, pProfesor.Direccion,
                     pProfesor.Correo, pProfesor.IdMateria, pProfesor.Id);
@@ -103,7 +102,7 @@ namespace ProyectoNotas.AccesoADatos
         }
 
 
-        public static Profesor ObtenerProfesoresPorId(int pId)
+        public   Profesor ObtenerPorId(int pId)
         {
             Profesor Profesor = new Profesor();
             using (SqlConnection con = Conexion.Conectar())

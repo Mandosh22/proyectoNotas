@@ -3,15 +3,17 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Listado de Administradores</h2>
+<h2>Lista de Profesores</h2>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#miModal">
-    Nuevo Administrador
+    Nuevo Profesor
 </button>
-<br />
-<br />
 
-<table id="administradores" class="table table-bordered table-striped">
+<br />
+<br />
+<table id="profesores" class="table table-bordered table-striped">
+
+
     <thead>
         <tr>
             <th>Id</th>
@@ -21,25 +23,27 @@
             <th>Apellido</th>
             <th>Direccion</th>
             <th>Correo</th>
+            <th>Materia</th>
             <th>Acciones</th>
         </tr>
     </thead>
     <tbody></tbody>
 </table>
 
+
 <!----------------- Ventana Modal ------------------------------------->
 <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Crear administrador</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Crear Profesor</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
 
-                <form id="frmAdministradores">
+                <form id="frmProfesores">
                     <input type="hidden" id="Id" name="Id" />
 
                     <div class="form-group">
@@ -66,6 +70,13 @@
                         <label>Correo</label>
                         <input type="text" id="Correo" name="Correo" class="form-control" />
                     </div>
+
+                    <div class="form-group">
+                        <label>Materia</label>
+                        <select id="Materia" name="Materia" class="form-control">
+                            <option value="-1">Seleccione una Materia</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <input type="submit" id="btnGuardar" value="Guardar" class="btn btn-primary" />
                     </div>
@@ -79,4 +90,5 @@
     </div>
 </div>
 <!-- Fin de la ventana Modal -->
-<script src="~/Scripts/AdministradoresAjax.js"></script>
+
+<script src="~/Scripts/ProfesoresAjax.js"></script>

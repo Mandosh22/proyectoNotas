@@ -1,16 +1,18 @@
 ﻿$(function () {
-    cargarAdministradores();
+    cargarProfesores();
+    cargarMaterias();
 });
 
-$('#frmAdministradores').submit(function (event) {
+
+$('#frmProfesores').submit(function (event) {
     event.preventDefault();
     guardar();
 });
 
 
-function cargarAdministradores() {
+function cargarProfesores() {
     $.ajax({
-        url: "/Administrador/Obtener",
+        url: "/Profesor/Obtener",
         type: "GET",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -19,19 +21,41 @@ function cargarAdministradores() {
             $.each(data, function (key, item) {
                 html += "<tr>";
                 html += "<td>" + item.Id + "</td>";
-                html += "<td>" + item.Username + "</td>";
+                html += "<td>" + item.UserName + "</td>";
                 html += "<td>" + item.Contraseña + "</td>";
                 html += "<td>" + item.Nombre + "</td>";
-                html += "<td>" + item.ApellidO + "</td>";
+                html += "<td>" + item.Apellido + "</td>";
                 html += "<td>" + item.Direccion + "</td>";
                 html += "<td>" + item.Correo + "</td>";
+                html += "<td>" + item.IdMateria + "</td>";
                 html += "<td>";
                 html += "<a href='#' class='btn btn-info' data-toggle='modal' data-target='#miModal' onclick='verDetalle(" + item.Id + ")'>Detalle</a> | ";
                 html += "<a href='#' class='btn btn-danger' onclick='eliminar(" + item.Id + ")'>Eliminar</a>";
                 html += "</td>";
                 html += "</tr>";
             });
-            $("#administradores tbody").html(html);
+            $("#profesores tbody").html(html);
+        },
+        error: function (error) {
+            alert(error.responseText);
+        }
+    });
+}
+
+
+
+function cargarMaterias() {
+    $.ajax({
+        url: "/Materia/Obtener",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var html = '';
+            $.each(data, function (key, item) {
+                html += "  <option value='" + item.Id + "' >" + item.Nombre + "</option>";
+            });
+            $('#Materia').append(html);
         },
         error: function (error) {
             alert(error.responseText);
@@ -41,18 +65,19 @@ function cargarAdministradores() {
 
 function verDetalle(id) {
     $.ajax({
-        url: "/administrador/ObtenerPorId?pId=" + id,
+        url: "/Profesor/ObtenerPorId?pId=" + id,
         type: "GET",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
             $('#Id').val(data.Id);
-            $('#UserName').val(data.Username);
+            $('#UserName').val(data.UserName);
             $('#Contraseña').val(data.Contraseña);
             $('#Nombre').val(data.Nombre);
-            $('#Apellido').val(data.ApellidO);
+            $('#Apellido').val(data.Apellido);
             $('#Direccion').val(data.Direccion);
             $('#Correo').val(data.Correo);
+            $('#Materia').val(data.IdMateria);
             $('#btnGuardar').val('Guardar Cambios');
 
         },
@@ -63,23 +88,24 @@ function verDetalle(id) {
 }
 
 function guardar() {
-    if (!($('#UserName').val() == "" || $('#Contraseña').val() == "" || $('#Nombre').val() == "" || $('#Apellido').val() == "" || $('#Direccion').val() == "" || $('#Correo').val() == "")) {
+    if (!($('#Username').val() == "" || $('#Contraseña').val() == "" || $('#Nombre').val() == "" || $('#Apellido').val() == "" || $('#Direccion').val() == "" || $('#Correo').val() == "" || $('#Materia').val() == "-1")) {
         var url = '';
-        var administrador = {
+        var profesor = {
             Id: $('#Id').val(),
-            Username: $('#UserName').val(),
+            UserName: $('#UserName').val(),
             Contraseña: $('#Contraseña').val(),
             Nombre: $('#Nombre').val(),
-            ApellidO: $('#Apellid').val(),
+            Apellido: $('#Apellido').val(),
             Direccion: $('#Direccion').val(),
             Correo: $('#Correo').val(),
+            IdMateria: $('#Materia').val()
         }
 
-        if (administrador.Id) {
-            url = '/Administrador/Modificar';
+        if (profesor.Id) {
+            url = '/Profesor/Modificar';
         }
         else {
-            url = '/Administrador/Agregar';
+            url = '/Profesor/Agregar';
         }
 
         $.ajax({
@@ -87,7 +113,7 @@ function guardar() {
             type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: JSON.stringify(administrador),
+            data: JSON.stringify(profesor),
             success: function (data) {
                 if ($('#btnGuardar').val() == "Guardar Cambios") {
                     alert("Se guardaron los cambios");
@@ -95,7 +121,7 @@ function guardar() {
                     alert("Registro guardado con éxito");
                 }
                 $('#miModal').modal('hide');
-                cargarAdministradores();
+                cargarProfesores();
                 limpiar();
             },
             error: function (error) {
@@ -116,6 +142,7 @@ function limpiar() {
     $('#Apellido').val("");
     $('#Direccion').val("");
     $('#Correo').val("");
+    $('#Materia').val("-1");
     $('btnGuardar').val("");
 }
 
@@ -123,13 +150,13 @@ function eliminar(id) {
     var resp = confirm("¿Estas seguro que quieres eliminar este registro?");
     if (resp) {
         $.ajax({
-            url: "/Administrador/Eliminar?pId=" + id,
+            url: "/Profesor/Eliminar?pId=" + id,
             type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
                 alert("Registro eliminado con éxito");
-                cargarAdministradores();
+                cargarProfesores();
                 limpiar();
             },
             error: function (error) {

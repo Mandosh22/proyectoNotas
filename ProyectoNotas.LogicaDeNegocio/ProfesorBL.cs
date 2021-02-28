@@ -30,5 +30,11 @@ namespace ProyectoNotas.LogicaDeNegocio
         {
             return profesorDAL.ObtenerProfesor();
         }
+
+        public Profesor ObtenerPorId(int pId)
+        {
+            return profesorDAL.ObtenerPorId(pId);
+        }
+
     }
 }
