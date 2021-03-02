@@ -24,9 +24,9 @@ function cargarDetalleSeccion() {
             $.each(data, function (key, item) {
                 html += "<tr>";
                 html += "<td>" + item.Id + "</td>";
-                html += "<td>" + item.IdSeccion + "</td>";
-                html += "<td>" + item.IdMateria + "</td>";
-                html += "<td>" + item.IdProfesor + "</td>";
+                html += "<td>" + item.NombreSeccion + "</td>";
+                html += "<td>" + item.NombreMateria + "</td>";
+                html += "<td>" + item.NombreProfesor + "</td>";
                 
                 html += "<td>";
                 html += "<a href='#' class='btn btn-info' data-toggle='modal' data-target='#miModal' onclick='verDetalle(" + item.Id + ")'>Detalle</a> | ";
@@ -115,18 +115,56 @@ function ObtenerProfesores() {
 }
 
 
+
+function ObtenerProfesoresAlModificar(Profe) {
+
+    var id = $('#Materia').val();
+
+    console.log(id);
+    $.ajax({
+        url: "/Profesor/ObtenerPorMateria?pId=" + id,
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            $('#Profesor').empty();
+            $('#Profesor').val(Profe);
+          
+            var html = '';
+            $.each(data, function (key, item) {
+                html += "  <option value='" + item.Id + "' >" + item.Nombre + " " + item.Apellido + " </option>";
+            });
+            $('#Profesor').append(html);
+
+
+
+        },
+        error: function (error) {
+            alert("Ocurrio un error, no se puedo completar la peticion");
+        }
+    });
+
+}
+
+
+
+
 function verDetalle(id) {
+
+   
     $.ajax({
         url: "/DetalleSeccion/ObtenerPorId?pId=" + id,
         type: "GET",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
+            var Profe = data.IdProfesor;
             $('#Id').val(data.Id);
 
             $('#Seccion').val(data.IdSeccion);
             $('#Materia').val(data.IdMateria);
-            $('#Profesor').val(data.IdProfesor);
+            ObtenerProfesoresAlModificar(Profe);
             $('#btnGuardar').val('Guardar Cambios');
 
         },

@@ -21,7 +21,7 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string ssql = "SELECT * FROM Profesores";
+                string ssql = "SELECT d.Id ,d.Nombre,d.Apellido,d.Username,d.Contraseña,d.Direccion,d.Correo,d.IdMateria  ,e.Nombre FROM Profesores as d INNER JOIN Materias as e on d.IdMateria = e.Id";
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
                 IDataReader reader = comando.ExecuteReader();
@@ -29,7 +29,7 @@ namespace ProyectoNotas.AccesoADatos
                 while (reader.Read())
                 {
                     listaProfesor.Add(new Profesor(reader.GetInt32(0), reader.GetString(1), reader.GetString(2)
-                        , reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(7)));
+                        , reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(7), reader.GetString(8)));
                 }
 
                 con.Close();
@@ -133,36 +133,6 @@ namespace ProyectoNotas.AccesoADatos
         }
 
 
-        public Profesor ObtenerPorMateria(int pId)
-        {
-            Profesor Profesor = new Profesor();
-            using (SqlConnection con = Conexion.Conectar())
-            {
-                con.Open();
-                string sentencia = "SELECT * FROM Profesores WHERE IdMateria = {0}";
-                string ssql = string.Format(sentencia, pId);
-                SqlCommand comando = new SqlCommand(ssql, con);
-                comando.CommandType = CommandType.Text;
-                IDataReader reader = comando.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    Profesor.Id = reader.GetInt32(0);
-                    Profesor.Nombre = reader.GetString(1);
-                    Profesor.Apellido = reader.GetString(2);
-                    Profesor.UserName = reader.GetString(3);
-                    Profesor.Contraseña = reader.GetString(4);
-                    Profesor.Direccion = reader.GetString(5);
-                    Profesor.Correo = reader.GetString(6);
-                    Profesor.IdMateria = reader.GetInt32(7);
-                }
-
-                con.Close();
-            }
-
-            return Profesor;
-        }
-
 
         public List<Profesor> ObtenerProfesor_Materia(int pId)
         {
@@ -170,7 +140,8 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "SELECT * FROM Profesores WHERE IdMateria = {0}";
+                string sentencia = "SELECT d.Id ,d.Nombre,d.Apellido,d.Username,d.Contraseña,d.Direccion,d.Correo,d.IdMateria  ,e.Nombre  " +
+                    "     FROM Profesores as d INNER JOIN Materias as e on d.IdMateria = e.Id  WHERE IdMateria = {0}";
                 string ssql = string.Format(sentencia, pId);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
@@ -179,7 +150,7 @@ namespace ProyectoNotas.AccesoADatos
                 while (reader.Read())
                 {
                     listaProfesor.Add(new Profesor(reader.GetInt32(0), reader.GetString(1), reader.GetString(2)
-                        , reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(7)));
+                        , reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(7),reader.GetString(8)));
                 }
 
                 con.Close();

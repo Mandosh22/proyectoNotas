@@ -37,10 +37,7 @@ namespace ProyectoNotas.LogicaDeNegocio
         }
 
 
-        public Profesor ObtenerPorMateria2(int pId)
-        {
-            return profesorDAL.ObtenerPorMateria(pId);
-        }
+      
 
         public List<Profesor> ObtenerPorMateria(int pId)
         {
