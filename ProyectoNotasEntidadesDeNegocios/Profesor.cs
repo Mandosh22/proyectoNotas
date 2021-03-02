@@ -17,6 +17,8 @@ namespace ProyectoNotasEntidadesDeNegocios
         public string Correo { get; set; }
         public int IdMateria { get; set; }
 
+    
+
         public Profesor( ) { }
 
         public Profesor(int pId, string pNombre, string pApellido, string pUserName, string pContraseña, string pDireccion, string pCorreo, int pIdMateria) 
@@ -29,6 +31,7 @@ namespace ProyectoNotasEntidadesDeNegocios
             Direccion = pDireccion;
             Correo = pCorreo;
             IdMateria = pIdMateria;
+          
         }
     }
 }

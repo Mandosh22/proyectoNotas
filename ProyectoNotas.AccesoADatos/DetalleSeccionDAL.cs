@@ -20,7 +20,7 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string ssql = "SELECT * FROM DetalleSecciones";
+                string ssql = "SELECT * FROM Detalle_Secciones";
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
                 IDataReader reader = comando.ExecuteReader();
@@ -44,7 +44,7 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "INSERT INTO DetalleSecciones (IdSeccion,IdMateria,IdProfesor) VALUES('{0}','{1}','{2}')";
+                string sentencia = "INSERT INTO Detalle_Secciones (IdSeccion,IdMateria,IdProfesor) VALUES('{0}','{1}','{2}')";
                 string ssql = string.Format(sentencia, pDetalleSeccion.IdSeccion, pDetalleSeccion.IdMateria, pDetalleSeccion.IdProfesor);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
@@ -63,7 +63,7 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "UPDATE DetalleSecciones SET IdSeccion = '{0}',IdMateria='{1}',IdProfesor='{2}',' WHERE Id ='{3}'";
+                string sentencia = "UPDATE Detalle_Secciones SET IdSeccion = '{0}',IdMateria='{1}',IdProfesor='{2}' WHERE Id ='{3}'";
                 string ssql = string.Format(sentencia, pDetalleSeccion.IdSeccion, pDetalleSeccion.IdMateria, pDetalleSeccion.IdProfesor, pDetalleSeccion.Id);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
@@ -83,7 +83,7 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "DELETE FROM DetalleSecciones WHERE Id = {0}";
+                string sentencia = "DELETE FROM Detalle_Secciones WHERE Id = {0}";
                 string ssql = string.Format(sentencia, pId);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
@@ -96,13 +96,13 @@ namespace ProyectoNotas.AccesoADatos
         }
 
 
-        public static DetalleSeccion ObtenerDetalleSeccionesPorId(int pId)
+        public  DetalleSeccion ObtenerDetalleSeccionesPorId(int pId)
         {
             DetalleSeccion DetalleSeccion = new DetalleSeccion();
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "SELECT * FROM DetalleSecciones WHERE Id = {0}";
+                string sentencia = "SELECT * FROM Detalle_Secciones WHERE Id = {0}";
                 string ssql = string.Format(sentencia, pId);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
@@ -122,6 +122,8 @@ namespace ProyectoNotas.AccesoADatos
 
             return DetalleSeccion;
         }
+
+
 
 
 

@@ -1,18 +1,21 @@
 ﻿$(function () {
-    cargarProfesores();
+    cargarDetalleSeccion();
+    cargarSecciones();
     cargarMaterias();
 });
 
 
-$('#frmProfesores').submit(function (event) {
+$('#frmDetalleSecciones').submit(function (event) {
     event.preventDefault();
     guardar();
 });
 
 
-function cargarProfesores() {
+
+
+function cargarDetalleSeccion() {
     $.ajax({
-        url: "/Profesor/Obtener",
+        url: "/DetalleSeccion/Obtener",
         type: "GET",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -21,20 +24,17 @@ function cargarProfesores() {
             $.each(data, function (key, item) {
                 html += "<tr>";
                 html += "<td>" + item.Id + "</td>";
-                html += "<td>" + item.UserName + "</td>";
-                html += "<td>" + item.Contraseña + "</td>";
-                html += "<td>" + item.Nombre + "</td>";
-                html += "<td>" + item.Apellido + "</td>";
-                html += "<td>" + item.Direccion + "</td>";
-                html += "<td>" + item.Correo + "</td>";
-                html += "<td>" + item.NombreMateria + "</td>";
+                html += "<td>" + item.IdSeccion + "</td>";
+                html += "<td>" + item.IdMateria + "</td>";
+                html += "<td>" + item.IdProfesor + "</td>";
+                
                 html += "<td>";
                 html += "<a href='#' class='btn btn-info' data-toggle='modal' data-target='#miModal' onclick='verDetalle(" + item.Id + ")'>Detalle</a> | ";
                 html += "<a href='#' class='btn btn-danger' onclick='eliminar(" + item.Id + ")'>Eliminar</a>";
                 html += "</td>";
                 html += "</tr>";
             });
-            $("#profesores tbody").html(html);
+            $("#detallesecciones tbody").html(html);
         },
         error: function (error) {
             alert(error.responseText);
@@ -42,6 +42,25 @@ function cargarProfesores() {
     });
 }
 
+
+function cargarSecciones() {
+    $.ajax({
+        url: "/Seccion/Obtener",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            var html = '';
+            $.each(data, function (key, item) {
+                html += "  <option value='" + item.Id + "' >" + item.Nombre + "</option>";
+            });
+            $('#Seccion').append(html);
+        },
+        error: function (error) {
+            alert(error.responseText);
+        }
+    });
+}
 
 
 function cargarMaterias() {
@@ -63,21 +82,51 @@ function cargarMaterias() {
     });
 }
 
+
+
+function ObtenerProfesores() {
+  
+    var id = $('#Materia').val();
+    
+    console.log(id);
+    $.ajax({
+        url: "/Profesor/ObtenerPorMateria?pId=" + id,
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            $('#Profesor').empty();
+            $('#Profesor').append('<option value="-1">Seleccione una opcion</option>');
+            var html = '';
+            $.each(data, function (key, item) {
+                html += "  <option value='" + item.Id + "' >" + item.Nombre + " " + item.Apellido + " </option>";
+            });
+            $('#Profesor').append(html);
+            
+   
+
+        },
+        error: function (error) {
+            alert("Ocurrio un error, no se puedo completar la peticion");
+        }
+    });
+  
+}
+
+
 function verDetalle(id) {
     $.ajax({
-        url: "/Profesor/ObtenerPorId?pId=" + id,
+        url: "/DetalleSeccion/ObtenerPorId?pId=" + id,
         type: "GET",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
             $('#Id').val(data.Id);
-            $('#UserName').val(data.UserName);
-            $('#Contraseña').val(data.Contraseña);
-            $('#Nombre').val(data.Nombre);
-            $('#Apellido').val(data.Apellido);
-            $('#Direccion').val(data.Direccion);
-            $('#Correo').val(data.Correo);
+
+            $('#Seccion').val(data.IdSeccion);
             $('#Materia').val(data.IdMateria);
+            $('#Profesor').val(data.IdProfesor);
             $('#btnGuardar').val('Guardar Cambios');
 
         },
@@ -87,25 +136,24 @@ function verDetalle(id) {
     });
 }
 
+
+
 function guardar() {
-    if (!($('#Username').val() == "" || $('#Contraseña').val() == "" || $('#Nombre').val() == "" || $('#Apellido').val() == "" || $('#Direccion').val() == "" || $('#Correo').val() == "" || $('#Materia').val() == "-1")) {
+
+    if (!($('#Seccion').val() === "-1"|| $('#Materia').val() === "-1" || $('#Profesor').val() === "-1")) {
         var url = '';
-        var profesor = {
-            Id: $('#Id').val(),
-            UserName: $('#UserName').val(),
-            Contraseña: $('#Contraseña').val(),
-            Nombre: $('#Nombre').val(),
-            Apellido: $('#Apellido').val(),
-            Direccion: $('#Direccion').val(),
-            Correo: $('#Correo').val(),
-            IdMateria: $('#Materia').val()
+        var detalleseccion = {
+            Id: $('#Id').val(),         
+            IdSeccion: $('#Seccion').val(),
+            IdMateria: $('#Materia').val(),
+            IdProfesor: $('#Profesor').val()
         }
 
-        if (profesor.Id) {
-            url = '/Profesor/Modificar';
+        if (detalleseccion.Id) {
+            url = '/DetalleSeccion/Modificar';
         }
         else {
-            url = '/Profesor/Agregar';
+            url = '/DetalleSeccion/Agregar';
         }
 
         $.ajax({
@@ -113,7 +161,7 @@ function guardar() {
             type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: JSON.stringify(profesor),
+            data: JSON.stringify(detalleseccion),
             success: function (data) {
                 if ($('#btnGuardar').val() == "Guardar Cambios") {
                     alert("Se guardaron los cambios");
@@ -121,7 +169,7 @@ function guardar() {
                     alert("Registro guardado con éxito");
                 }
                 $('#miModal').modal('hide');
-                cargarProfesores();
+                cargarDetalleSeccion();
                 limpiar();
             },
             error: function (error) {
@@ -134,15 +182,13 @@ function guardar() {
     }
 }
 
+
+
 function limpiar() {
-    $('#Id').val("");
-    $('#UserName').val("");
-    $('#Contraseña').val("");
-    $('#Nombre').val("");
-    $('#Apellido').val("");
-    $('#Direccion').val("");
-    $('#Correo').val("");
+    $('#Id').val(""); 
+    $('#Seccion').val("-1");
     $('#Materia').val("-1");
+    $('#Profesor').val("-1");
     $('btnGuardar').val("");
 }
 
@@ -150,13 +196,13 @@ function eliminar(id) {
     var resp = confirm("¿Estas seguro que quieres eliminar este registro?");
     if (resp) {
         $.ajax({
-            url: "/Profesor/Eliminar?pId=" + id,
+            url: "/DetalleSeccion/Eliminar?pId=" + id,
             type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
                 alert("Registro eliminado con éxito");
-                cargarProfesores();
+                cargarDetalleSeccion();
                 limpiar();
             },
             error: function (error) {
@@ -165,3 +211,4 @@ function eliminar(id) {
         });
     }
 }
+

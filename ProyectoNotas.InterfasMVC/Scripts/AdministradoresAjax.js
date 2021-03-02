@@ -43,7 +43,7 @@ function verDetalle(id) {
     $.ajax({
         url: "/administrador/ObtenerPorId?pId=" + id,
         type: "GET",
-        contentType: "application/json; charset=utf-8",
+      contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
             $('#Id').val(data.Id);

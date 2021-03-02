@@ -32,6 +32,14 @@ namespace proyectoNotas.InterfasMVC.Controllers
             return Json(profesorBL.ObtenerPorId(pId), JsonRequestBehavior.AllowGet);
         }
 
+
+        //accio que permite leer el detalle de un registro
+        public JsonResult ObtenerPorMateria(int pId)
+        {
+            return Json(profesorBL.ObtenerPorMateria(pId), JsonRequestBehavior.AllowGet);
+        }
+
+
         //accion que permite agregar un nuevo registro
         [HttpPost]
         public JsonResult Agregar(Profesor pProfesor)

@@ -99,6 +99,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\DetalleSeccionAjax.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -113,6 +114,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\DetalleSeccionController.cs" />
     <Compile Include="Controllers\Materia2Controller.cs" />
     <Compile Include="Controllers\MateriaController.cs" />
     <Compile Include="Controllers\ProfesorController.cs" />
@@ -142,6 +144,7 @@
     <Content Include="Views\Materia2\Index.cshtml" />
     <Content Include="Views\Administrador\Index.cshtml" />
     <Content Include="Views\Profesor\Index.cshtml" />
+    <Content Include="Views\DetalleSeccion\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

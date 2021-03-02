@@ -43,7 +43,7 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "INSERT INTO Administradores (Username,Contraseña,Nombre,ApellidO,Direccion,Correo) VALUES('{0}'," +
+                string sentencia = "INSERT INTO Administradores (Username,Contraseña,Nombre,Apellido,Direccion,Correo) VALUES('{0}'," +
                     "'{1}','{2}','{3}','{4}','{5}')";
                 string ssql = string.Format(sentencia, pAdministrador.Username, pAdministrador.Contraseña, pAdministrador.Nombre, pAdministrador.ApellidO,
                     pAdministrador.Direccion, pAdministrador.Correo);

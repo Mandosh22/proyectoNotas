@@ -30,5 +30,11 @@ namespace ProyectoNotas.LogicaDeNegocio
         {
             return detalleSeccionDAL.ObtenerDetalleSecciones();
         }
+
+        public DetalleSeccion ObtenerPorId(int pId)
+        {
+            return detalleSeccionDAL.ObtenerDetalleSeccionesPorId(pId);   
+         }
     }
+
 }
