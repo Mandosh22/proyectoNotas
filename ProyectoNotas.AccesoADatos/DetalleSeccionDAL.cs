@@ -129,6 +129,31 @@ namespace ProyectoNotas.AccesoADatos
         }
 
 
+        public List<DetalleSeccion> ObtenerSeccionesPorProfesor(int pId)
+        {
+            List<DetalleSeccion> listaDetalleSeccion = new List<DetalleSeccion>();
+            using (SqlConnection con = Conexion.Conectar())
+            {
+                con.Open();
+                string sentencia = "  SELECT dt.Id,dt.IdSeccion,dt.IdMateria,dt.IdProfesor ,s.Nombre ,m.Nombre, p.Nombre + ' ' + p.Apellido as NombreProfesor" +
+                    "   FROM Detalle_Secciones as dt INNER JOIN  Secciones as s on s.Id = dt.IdSeccion" +
+                    " INNER JOIN  Materias as m on m.Id = dt.IdMateria" +
+                    " INNER JOIN Profesores as p on p.Id = dt.IdProfesor where IdProfesor = {0}";
+                string ssql = string.Format(sentencia, pId);
+                SqlCommand comando = new SqlCommand(ssql, con);
+                comando.CommandType = CommandType.Text;
+                IDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listaDetalleSeccion.Add(new DetalleSeccion(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetString(4), reader.GetString(5), reader.GetString(6)));
+                }
+
+                con.Close();
+            }
+
+            return listaDetalleSeccion;
+        }
 
 
 

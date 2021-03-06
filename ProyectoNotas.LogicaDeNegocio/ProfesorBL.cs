@@ -44,5 +44,10 @@ namespace ProyectoNotas.LogicaDeNegocio
             return profesorDAL.ObtenerProfesor_Materia(pId);
         }
 
+        public Profesor Login(Profesor pProfesor)
+        {
+            return profesorDAL.Login(pProfesor);
+        }
+
     }
 }

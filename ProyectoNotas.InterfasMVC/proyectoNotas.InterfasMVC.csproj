@@ -96,6 +96,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\AdministradoresAjax.js" />
+    <Content Include="Scripts\AlumnosAjax.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -104,9 +105,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\LoginAjax.js" />
     <Content Include="Scripts\Materias2Ajax.js" />
     <Content Include="Scripts\MateriasAjax.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\NotaAjax.js" />
     <Content Include="Scripts\ProfesoresAjax.js" />
     <Content Include="Scripts\SeccionesAjax.js" />
     <Content Include="Web.config" />
@@ -114,9 +117,12 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
+    <Compile Include="Controllers\AlumnoController.cs" />
     <Compile Include="Controllers\DetalleSeccionController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Materia2Controller.cs" />
     <Compile Include="Controllers\MateriaController.cs" />
+    <Compile Include="Controllers\NotaController.cs" />
     <Compile Include="Controllers\ProfesorController.cs" />
     <Compile Include="Controllers\SeccionController.cs" />
     <Compile Include="Global.asax.cs">
@@ -145,6 +151,9 @@
     <Content Include="Views\Administrador\Index.cshtml" />
     <Content Include="Views\Profesor\Index.cshtml" />
     <Content Include="Views\DetalleSeccion\Index.cshtml" />
+    <Content Include="Views\Alumno\Index.cshtml" />
+    <Content Include="Views\Nota\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

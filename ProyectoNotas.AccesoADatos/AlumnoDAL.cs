@@ -20,7 +20,7 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string ssql = "SELECT * FROM Alumnos";
+                string ssql = "SELECT a.Id , a.Nombre, a.Apellido, a.Username,a.Contraseña,a.Direccion,a.Correo,a.IdSeccion,s.Nombre  From Alumnos as a INNER JOIN Secciones as s on a.IdSeccion = s.Id";
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
                 IDataReader reader = comando.ExecuteReader();
@@ -28,7 +28,7 @@ namespace ProyectoNotas.AccesoADatos
                 while (reader.Read())
                 {
                     listaAlumno.Add(new Alumno(reader.GetInt32(0), reader.GetString(1), reader.GetString(2)
-                        , reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(7)));
+                        , reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(7), reader.GetString(8)));
                 }
 
                 con.Close();
@@ -66,7 +66,7 @@ namespace ProyectoNotas.AccesoADatos
             {
                 con.Open();
                 string sentencia = "UPDATE Alumnos SET Nombre = '{0}',Apellido='{1}',Username='{2}'," +
-                    " Contraseña='{3}',Direccion='{4}',Correo='{5}',IdSeccion'{6}' WHERE Id ='{7}'";
+                    " Contraseña='{3}',Direccion='{4}',Correo='{5}',IdSeccion='{6}' WHERE Id ='{7}'";
                 string ssql = string.Format(sentencia, pAlumno.Nombre, pAlumno.Apellido,
                     pAlumno.UserName, pAlumno.Contraseña, pAlumno.Direccion,
                     pAlumno.Correo, pAlumno.IdSeccion , pAlumno.Id);
@@ -134,6 +134,31 @@ namespace ProyectoNotas.AccesoADatos
             return Alumno;
         }
 
+
+        public List<Alumno> ObtenerAlumnosPorSeccion(int pId)
+        {
+            List<Alumno> listaAlumno = new List<Alumno>();
+            using (SqlConnection con = Conexion.Conectar())
+            {
+                con.Open();
+                string sentencia = "SELECT a.Id , a.Nombre, a.Apellido, a.Username,a.Contraseña,a.Direccion,a.Correo,a.IdSeccion,s.Nombre  From Alumnos as a" +
+                    " INNER JOIN Secciones as s on a.IdSeccion = s.Id where a.IdSeccion={0}";
+                string ssql = string.Format(sentencia, pId);
+                SqlCommand comando = new SqlCommand(ssql, con);
+                comando.CommandType = CommandType.Text;
+                IDataReader reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listaAlumno.Add(new Alumno(reader.GetInt32(0), reader.GetString(1), reader.GetString(2)
+                        , reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetInt32(7), reader.GetString(8)));
+                }
+
+                con.Close();
+            }
+
+            return listaAlumno;
+        }
 
     }
 }

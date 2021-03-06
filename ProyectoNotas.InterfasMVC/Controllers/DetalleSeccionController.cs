@@ -29,6 +29,12 @@ namespace proyectoNotas.InterfasMVC.Controllers
             return Json(detalleseccionBL.ObtenerPorId(pId), JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult ObtenerPorSeccionPorProfesor(int pId)
+        {
+            return Json(detalleseccionBL.ObtenerSeccionesPorProfesor(pId), JsonRequestBehavior.AllowGet);
+        }
+
+
         [HttpPost]
         public JsonResult Agregar(DetalleSeccion pDetalleSeccion)
         {

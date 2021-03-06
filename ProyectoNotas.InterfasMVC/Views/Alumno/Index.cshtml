@@ -1,17 +1,18 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Alumnos";
 }
 
-<h2>Index</h2>
-
+<h2>Lista de Alumnos</h2>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#miModal">
-    Nuevo Detalle Seccion
+    Nuevo Alumno
 </button>
 
 <br />
 <br />
+
+
+
 
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -40,17 +41,20 @@
 
 </div>
 
-<table id="detallesecciones" class="table table-bordered table-striped">
+<table id="alumnos" class="table table-bordered table-striped">
 
 
     <thead>
         <tr>
             <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Username</th>
+            <th>Contraseña</th>
+            <th>Direccion</th>
+            <th>Correo</th>
             <th>Seccion</th>
-            <th>Materia</th>
-            <th>Profesor</th>
             <th>Acciones</th>
-
         </tr>
     </thead>
     <tbody></tbody>
@@ -69,8 +73,33 @@
             </div>
             <div class="modal-body">
 
-                <form id="frmDetalleSecciones">
+                <form id="frmAlumnos">
                     <input type="hidden" id="Id" name="Id" />
+
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" id="Nombre" name="Nombre" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Apellido</label>
+                        <input type="text" id="Apellido" name="Apellido" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="Username" name="Username" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" id="Contraseña" name="Contraseña" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Direccion</label>
+                        <input type="text" id="Direccion" name="Direccion" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Correo</label>
+                        <input type="text" id="Correo" name="Correo" class="form-control" />
+                    </div>
 
                     <div class="form-group">
                         <label>Seccion</label>
@@ -78,23 +107,6 @@
                             <option value="-1">Seleccione una Seccion</option>
                         </select>
                     </div>
-
-
-                    <div class="form-group">
-                        <label>Materia</label>
-                        <select id="Materia" name="Materia" class="form-control" onchange="ObtenerProfesores()">
-                            <option value="-1">Seleccione una Materia</option>
-                        </select>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label>Profesor</label>
-                        <select id="Profesor" name="Profesor" class="form-control">
-                            <option value="-1">Seleccione una Profesor</option>
-                        </select>
-                    </div>
-
                     <div class="form-group">
                         <input type="submit" id="btnGuardar" value="Guardar" class="btn btn-primary" />
                     </div>
@@ -109,4 +121,4 @@
 </div>
 <!-- Fin de la ventana Modal -->
 
-<script src="~/Scripts/DetalleSeccionAjax.js"></script>
+<script src="~/Scripts/AlumnosAjax.js"></script>

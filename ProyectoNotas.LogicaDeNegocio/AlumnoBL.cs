@@ -31,5 +31,17 @@ namespace ProyectoNotas.LogicaDeNegocio
         {
             return alumnoDAL.ObtenerAlumnos();
         }
+
+
+        public Alumno ObtenerAlumnosPorId(int pId)
+        {
+            return AlumnoDAL.ObtenerAlumnosPorId(pId);
+        }
+
+        public List<Alumno> ObtenerAlumnosPorSeccion(int pId)
+        {
+            return alumnoDAL.ObtenerAlumnosPorSeccion(pId);
+        }
+
     }
 }

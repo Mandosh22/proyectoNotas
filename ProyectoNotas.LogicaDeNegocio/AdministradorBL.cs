@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-
 using ProyectoNotas.AccesoADatos;
 using ProyectoNotasEntidadesDeNegocios;
  
+
 namespace ProyectoNotas.LogicaDeNegocio
 {
     public class AdministradorBL
@@ -35,6 +34,12 @@ namespace ProyectoNotas.LogicaDeNegocio
         public Administrador ObtenerAdministradorPorId(int pId)
         {
             return AdministradorDAL.ObtenerAdministradorPorId(pId);
+        }
+
+
+        public Administrador Login(Administrador pAdministrador)
+        {
+            return administradorDAL.LoginAdmin(pAdministrador);
         }
     }
 }

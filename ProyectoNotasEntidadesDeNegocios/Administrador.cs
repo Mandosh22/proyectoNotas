@@ -12,17 +12,17 @@ namespace ProyectoNotasEntidadesDeNegocios
         public string Username { get; set; }
         public string Contraseña { get; set; }
         public string Nombre { get; set; }
-        public string ApellidO { get; set; }
+        public string Apellido { get; set; }
         public string Direccion { get; set; }
         public string Correo { get; set; }
 
 
         public Administrador() { }
-        public Administrador(int pId, string pUserName, string pContraseña, string pNombre, string pApellidO, string pDireccion, string pCorreo)
+        public Administrador(int pId, string pUserName, string pContraseña, string pNombre, string pApellido, string pDireccion, string pCorreo)
         {
             Id = pId;
             Nombre = pNombre;
-            ApellidO = pApellidO;
+            Apellido = pApellido;
             Username = pUserName;
             Contraseña = pContraseña;
             Direccion = pDireccion;

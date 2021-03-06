@@ -13,20 +13,26 @@ namespace ProyectoNotas.AccesoADatos
 {
      public class NotaDAL
     {
-        public List<Nota> ObtenerNotas()
+        public List<Nota> ObtenerNotas(int pId)
         {
             List<Nota> listaNotas = new List<Nota>();
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string ssql = "SELECT * FROM Notas";
+                string sentencia = " select  n.Id ,n.IdAlumno,n.IdProfesor ,n.nota ,s.Id as IDSECCION,s.Nombre ,a.Nombre +' '+ a.Apellido as NombreAumno,  p.Nombre+' '+ p.Apellido as NombreProfe    from Notas as n" +
+                    " inner join Alumnos as a on n.IdAlumno = a.Id" +
+                    "  inner join Profesores as p on n.IdProfesor = p.Id" +
+                    "  inner join Secciones as s on a.IdSeccion = s.Id  where n.IdProfesor={0} ";
+                string ssql = string.Format(sentencia, pId);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
                 IDataReader reader = comando.ExecuteReader();
 
+        
+
                 while (reader.Read())
                 {
-                    listaNotas.Add(new Nota(reader.GetInt32(0), reader.GetDecimal(1), reader.GetInt32(2), reader.GetInt32(3)));
+                    listaNotas.Add(new Nota(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetDecimal(3), reader.GetInt32(4),reader.GetString(5),reader.GetString(6), reader.GetString(7)));
                 }
 
                 con.Close();
@@ -42,8 +48,8 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "INSERT INTO Notas (IdAlumno ,Nota,IdMateria) VALUES('{0}','{1}','{2}')";
-                string ssql = string.Format(sentencia, pNota.IdAlumno, pNota.Notas, pNota.IdMateria);
+                string sentencia = "INSERT INTO Notas (IdAlumno ,Nota,IdProfesor) VALUES('{0}','{1}','{2}')";
+                string ssql = string.Format(sentencia, pNota.IdAlumno, pNota.Notas, pNota.IdProfesor);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
                 resultado = comando.ExecuteNonQuery();
@@ -62,8 +68,8 @@ namespace ProyectoNotas.AccesoADatos
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "UPDATE Notas SET IdAlumno = '{0}',Nota='{1}',IdMateria='{2}',' WHERE Id ='{3}'";
-                string ssql = string.Format(sentencia, pNota.IdAlumno, pNota.Notas, pNota.IdMateria, pNota.Id);
+                string sentencia = "UPDATE Notas SET IdAlumno = '{0}',Nota='{1}',IdProfesor='{2}' WHERE Id ='{3}'";
+                string ssql = string.Format(sentencia, pNota.IdAlumno, pNota.Notas, pNota.IdProfesor, pNota.Id);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
                 resultado = comando.ExecuteNonQuery();
@@ -96,13 +102,16 @@ namespace ProyectoNotas.AccesoADatos
         }
 
 
-        public static Nota ObtenerNotaPorId(int pId)
+        public  Nota ObtenerNotaPorId(int pId)
         {
             Nota Nota = new Nota();
             using (SqlConnection con = Conexion.Conectar())
             {
                 con.Open();
-                string sentencia = "SELECT * FROM Notas WHERE Id = {0}";
+                string sentencia = "select n.Id ,n.IdAlumno,n.IdProfesor ,n.nota ,s.Id as IDSECCION,s.Nombre ,a.Nombre , p.Nombre from Notas as n " +
+                    "inner join Alumnos as a on n.IdAlumno = a.Id" +
+                    " inner join Profesores as p on n.IdProfesor = p.Id" +
+                    "  inner join Secciones as s on a.IdSeccion = s.Id where n.Id = {0}   ";
                 string ssql = string.Format(sentencia, pId);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
@@ -112,9 +121,12 @@ namespace ProyectoNotas.AccesoADatos
                 {
                     Nota.Id = reader.GetInt32(0);
                     Nota.IdAlumno = reader.GetInt32(1);
-                    Nota.Notas = reader.GetInt32(2);
-                    Nota.IdMateria = reader.GetInt32(3);
-
+                    Nota.IdProfesor = reader.GetInt32(2);
+                    Nota.Notas = reader.GetDecimal(3);
+                    Nota.IdSeccion = reader.GetInt32(4);
+                    Nota.NombreSeccion = reader.GetString(5);
+                    Nota.NombreAlumno = reader.GetString(6);
+                    Nota.NombreProfesor = reader.GetString(7);
                 }
 
                 con.Close();

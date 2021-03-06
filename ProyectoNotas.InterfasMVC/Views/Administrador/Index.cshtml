@@ -11,72 +11,103 @@
 <br />
 <br />
 
-<table id="administradores" class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Username</th>
-            <th>Contraseña</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Direccion</th>
-            <th>Correo</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody></tbody>
-</table>
 
-<!----------------- Ventana Modal ------------------------------------->
-<div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Crear administrador</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Sistema de Notas", "Index", "Administrador", new { area = "" }, new { @class = "navbar-brand" })
+            @if (Request.IsAuthenticated)
+            {
+                @Html.ActionLink("Administradores", "Index", "Administrador", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Materias", "Index", "Materia2", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Profesores", "Index", "Profesor", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Alumnos", "Index", "Alumno", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Secciones", "Index", "Seccion", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Detalle Seccion", "Index", "DetalleSeccion", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Cerrar Sesion", "Logout", "Login", new { area = "" }, new { @class = "navbar-brand" })
+            }
 
-                <form id="frmAdministradores">
-                    <input type="hidden" id="Id" name="Id" />
 
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" id="UserName" name="UserName" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Contraseña</label>
-                        <input type="password" id="Contraseña" name="Contraseña" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Nombre</label>
-                        <input type="text" id="Nombre" name="Nombre" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Apellido</label>
-                        <input type="text" id="Apellido" name="Apellido" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Direccion</label>
-                        <input type="text" id="Direccion" name="Direccion" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Correo</label>
-                        <input type="text" id="Correo" name="Correo" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" id="btnGuardar" value="Guardar" class="btn btn-primary" />
-                    </div>
-                </form>
+        </div>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="limpiar()">Cerrar</button>
+    </div>
+
+</div>
+
+
+
+
+        <table id="administradores" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Contraseña</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Direccion</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <!----------------- Ventana Modal ------------------------------------->
+        <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Guardar Registro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form id="frmAdministradores">
+                            <input type="hidden" id="Id" name="Id" />
+
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" id="UserName" name="UserName" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Contraseña</label>
+                                <input type="password" id="Contraseña" name="Contraseña" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" id="Nombre" name="Nombre" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Apellido</label>
+                                <input type="text" id="Apellido" name="Apellido" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Direccion</label>
+                                <input type="text" id="Direccion" name="Direccion" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Correo</label>
+                                <input type="text" id="Correo" name="Correo" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" id="btnGuardar" value="Guardar" class="btn btn-primary" />
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="limpiar()">Cerrar</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- Fin de la ventana Modal -->
-<script src="~/Scripts/AdministradoresAjax.js"></script>
+        <!-- Fin de la ventana Modal -->
+        <script src="~/Scripts/AdministradoresAjax.js"></script>

@@ -45,7 +45,7 @@ namespace ProyectoNotas.AccesoADatos
                 con.Open();
                 string sentencia = "INSERT INTO Administradores (Username,Contraseña,Nombre,Apellido,Direccion,Correo) VALUES('{0}'," +
                     "'{1}','{2}','{3}','{4}','{5}')";
-                string ssql = string.Format(sentencia, pAdministrador.Username, pAdministrador.Contraseña, pAdministrador.Nombre, pAdministrador.ApellidO,
+                string ssql = string.Format(sentencia, pAdministrador.Username, pAdministrador.Contraseña, pAdministrador.Nombre, pAdministrador.Apellido,
                     pAdministrador.Direccion, pAdministrador.Correo);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
@@ -66,9 +66,9 @@ namespace ProyectoNotas.AccesoADatos
             {
                 con.Open();
                 string sentencia = "UPDATE Administradores SET Username = '{0}',Contraseña='{1}',Nombre='{2}'," +
-                    " ApellidO='{3}',Direccion='{4}',Correo='{5}' WHERE Id ='{6}'";
+                    " Apellido='{3}',Direccion='{4}',Correo='{5}' WHERE Id ='{6}'";
                 string ssql = string.Format(sentencia, pAdministrador.Username, pAdministrador.Contraseña,
-                    pAdministrador.Nombre, pAdministrador.ApellidO, pAdministrador.Direccion,
+                    pAdministrador.Nombre, pAdministrador.Apellido, pAdministrador.Direccion,
                     pAdministrador.Correo, pAdministrador.Id);
                 SqlCommand comando = new SqlCommand(ssql, con);
                 comando.CommandType = CommandType.Text;
@@ -120,7 +120,7 @@ namespace ProyectoNotas.AccesoADatos
                     Administrador.Username = reader.GetString(1);
                     Administrador.Contraseña = reader.GetString(2);
                     Administrador.Nombre = reader.GetString(3);
-                    Administrador.ApellidO = reader.GetString(4);
+                    Administrador.Apellido = reader.GetString(4);
                     Administrador.Direccion = reader.GetString(5);
                     Administrador.Correo = reader.GetString(6);
                 }
@@ -131,7 +131,48 @@ namespace ProyectoNotas.AccesoADatos
             return Administrador;
         }
 
+        public Administrador LoginAdmin(Administrador pAdministrador)
+        {
+            Administrador administrador = new Administrador();
+            using (SqlConnection con = Conexion.Conectar())
+            {
+                con.Open();
+                string ssql = "SELECT * from Administradores where Username=@Username ";
+                SqlCommand comando = new SqlCommand(ssql, con);
+                comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@Username", pAdministrador.Username);
+                IDataReader reader = comando.ExecuteReader();
+                if (reader.Read())
+                {
 
+                    if (reader["Contraseña"].ToString() == pAdministrador.Contraseña)
+                    {
+
+                        administrador.Id = reader.GetInt32(0);
+                        administrador.Nombre = reader.GetString(1);
+                        administrador.Apellido = reader.GetString(2);
+                        administrador.Username = reader.GetString(3);
+                        administrador.Contraseña = reader.GetString(4);
+                        administrador.Direccion = reader.GetString(5);
+                        administrador.Correo = reader.GetString(6);
+                       
+
+                    }
+                    else
+
+                        return null;
+
+
+                }
+                else
+
+                    return null;
+
+                con.Close();
+            }
+
+            return administrador;
+        }
 
 
     }

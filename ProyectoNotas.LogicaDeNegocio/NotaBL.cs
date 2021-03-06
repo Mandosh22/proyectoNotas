@@ -27,9 +27,18 @@ namespace ProyectoNotas.LogicaDeNegocio
             return notaDAL.EliminarNota(pId);
         }
 
-        public List<Nota> ObtenerNotas()
+   
+        public List<Nota> ObtenerNotas(int pId)
         {
-            return notaDAL.ObtenerNotas();
+            return notaDAL.ObtenerNotas(pId);
         }
+
+
+        public Nota ObtenerNotaPorId(int pId)
+        {
+            return notaDAL.ObtenerNotaPorId(pId);
+        }
+
+
     }
 }

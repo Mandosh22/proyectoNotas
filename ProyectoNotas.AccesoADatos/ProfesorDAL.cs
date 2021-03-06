@@ -159,6 +159,47 @@ namespace ProyectoNotas.AccesoADatos
             return listaProfesor;
         }
 
+        public Profesor Login(Profesor pProfesor)
+        {
+            Profesor profesor = new Profesor();
+            using (SqlConnection con = Conexion.Conectar())
+            {
+                con.Open();
+                string ssql = "SELECT * from Profesores where Username=@Username ";
+                SqlCommand comando = new SqlCommand(ssql, con);
+                comando.CommandType = CommandType.Text;
+                comando.Parameters.AddWithValue("@Username", pProfesor.UserName);
+                IDataReader reader = comando.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    if (reader["Contraseña"].ToString()==pProfesor.Contraseña)
+                    {
+
+                        profesor.Id = reader.GetInt32(0);
+                        profesor.Nombre = reader.GetString(1);
+                        profesor.Apellido = reader.GetString(2);
+                        profesor.UserName = reader.GetString(3);
+                        profesor.Contraseña = reader.GetString(4);
+                        profesor.Direccion = reader.GetString(5);
+                        profesor.Correo = reader.GetString(6);
+                        profesor.IdMateria = reader.GetInt32(7);
+
+                    }
+                    else
+                    
+                        return null;
+                    
+                  
+                }else
+
+                    return null;
+
+                con.Close();
+            }
+
+            return profesor;
+        }
 
 
 
